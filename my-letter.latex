@@ -2,6 +2,8 @@
 % • repo: github.com/Flinders-Cybersecurity-Society/pandoc-letter-australia
 % • file: template-letter.tex
 % • version: 8b25675, 27 January 2023
+% changes:
+% • align bulleted and numbered lists flush left
 \PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
 \PassOptionsToPackage{hyphens}{url}
 $if(colorlinks)$
@@ -120,6 +122,21 @@ $else$
 $endif$
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
+%
+%
+% align bulleted and numbered lists flush left
+%
+%
+\usepackage{enumitem}
+\usepackage{calc}
+\setlist[itemize]{leftmargin=*}
+\setlist[enumerate]{labelindent = *,
+	labelwidth  = \widthof{0},
+	label       = \arabic*.,
+	itemindent  = *,
+	leftmargin  = !}
+%
+%
 $if(verbatim-in-note)$
 \VerbatimFootnotes % allows verbatim text in footnotes
 $endif$
